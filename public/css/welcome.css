@@ -1,0 +1,27 @@
+.btn-lgn {
+  background-color: #343a40;
+  border-color: #12e343;
+  color: #12e343;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 5px 40px;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn-lgn:hover {
+  background-color: #12e343;
+  color: white;
+}
+
+.btn-rgs {
+  background-color: #9ea3a9;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 5px 40px;
+}
