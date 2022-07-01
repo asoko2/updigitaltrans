@@ -117,6 +117,7 @@ class FormMerchantController extends Controller
             'description' => $request->input('detail'),
             'open_time' => $request->input('jam_buka'),
             'close_time' => $request->input('jam_tutup'),
+            'is_admin' => '3',
             'nik_number' => $request->input('no_ktp'),
             'phone_number' => $request->input('no_hp'),
             'gallery_merchant' => $request->input('service'),

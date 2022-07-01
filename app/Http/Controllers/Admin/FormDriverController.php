@@ -126,6 +126,7 @@ class FormDriverController extends Controller
                 'birth_date' => $request->input('tanggal_lahir'),
                 'address' => $request->input('alamat'),
                 'brand' => $request->input('merk'),
+                'is_admin' => '2',
                 'type' => $request->input('tipe_kendaraan'),
                 'color' => $request->input('warna_kendaraan'),
                 'sim_number' => $request->input('no_sim'),
