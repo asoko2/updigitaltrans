@@ -35,7 +35,8 @@
                                     <div class="flex flex-col gap-8 w-1/2">
                                         <div class="flex flex-row w-full gap-4 items-center">
                                             <label class="font-semibold w-3/12">Tipe Driver</label>
-                                            <input type="radio" name="tipe_driver" id="driver1" value="1" required />
+                                            <input type="radio" name="tipe_driver" id="driver1" value="1"
+                                                required />
                                             <label for="driver1">Up Drive</label>
                                             <input type="radio" name="tipe_driver" id="driver2" value="2" />
                                             <label for="driver2">Up Car</label>

@@ -88,6 +88,7 @@ class FormDriverController extends Controller
         $request->validate([
             'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'no_hp' => ['required', 'unique:drivers,phone_number'],
             'no_ktp' => ['required', 'unique:drivers,ktp_number'],
             'no_kendaraan' => ['required', 'unique:drivers,vehicle_number'],
             'no_sim' => ['required', 'unique:drivers,sim_number'],
@@ -130,6 +131,7 @@ class FormDriverController extends Controller
                 'sim_number' => $request->input('no_sim'),
                 'ktp_number' => $request->input('no_ktp'),
                 'stnk_number' => $request->input('no_stnk'),
+                'phone_number' => $request->input('no_hp'),
                 'photo_ktp' => $ktpPath,
                 'photo_user' => $fotoPath,
                 'photo_sim' => $simPath,
