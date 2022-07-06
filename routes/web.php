@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\FormDriverController;
 use App\Http\Controllers\Admin\FormMerchantController;
 use App\Http\Controllers\Admin\SlideBannerController;
 use App\Http\Controllers\Admin\UserController;
+use App\Models\ContactUs;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +53,28 @@ Route::get('/contact-us', function () {
     return view('kontakkami');
 })->name('contact-us');
 
+Route::post('/contact-us/post', function (Request $request) {
+    $request->validate([
+        'phone' => 'required|string',
+        'name' => 'required|string',
+        'address' => 'required|string',
+        'description' => 'required|string'
+    ]);
+
+    try {
+        ContactUs::create([
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+    } catch (\Throwable $th) {
+        return redirect()->route('contact-us')->with('error', $th->getMessage());
+    }
+
+    return redirect()->route('contact-us')->with('success', 'Permintaan berhasil dikirim');
+})->name('contact-us.post');
+
 require __DIR__ . '/auth.php';
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
@@ -73,6 +97,11 @@ Route::middleware(['auth', 'is_admin:1'])->group(function () {
             Route::post('/form-merchant/tambah-merchant', [FormMerchantController::class, 'store'])->name('tambahMerchant');
 
             Route::get('/kontak-kami', [ContactUsController::class, 'index'])->name('kontak-kami');
+            Route::get('/getContactJSON', [ContactUsController::class, 'getContactJSON']);
+            Route::get('/form-contact/show/{id}', [ContactUsController::class, 'show'])->name('show-contact');
+            Route::post('/form-contact/verif', [ContactUsController::class, 'verif'])->name('verifContact');
+            Route::post('/form-contact/tambah-contact', [ContactUsController::class, 'store'])->name('tambahContact');
+
             Route::get('/user', [UserController::class, 'index'])->name('user');
         });
     });

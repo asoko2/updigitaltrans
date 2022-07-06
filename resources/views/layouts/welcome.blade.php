@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     {{-- Font Awesome --}}
-    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}"> --}}
+    <script src="https://kit.fontawesome.com/4ee22917d4.js" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -23,7 +24,6 @@
             /* width: 100%; */
             margin: auto;
         }
-
     </style>
     @yield('package')
 </head>
@@ -66,8 +66,8 @@
                 <p>Our Customers :</p>
             </div>
             <div class="">
-                <img src="{{ asset('img/no_img.jpeg') }}" width="60" height="40" class="d-inline-block align-top"
-                    alt="">
+                <img src="{{ asset('img/no_img.jpeg') }}" width="60" height="40"
+                    class="d-inline-block align-top" alt="">
             </div>
         </div>
         <div class="flex flex-row gap-16">
