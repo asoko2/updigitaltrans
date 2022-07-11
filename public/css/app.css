@@ -859,15 +859,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.my-2{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}.mx-10{
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
 }.mx-auto{
   margin-left: auto;
   margin-right: auto;
 }.my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
+}.mx-10{
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }.ml-3{
   margin-left: 0.75rem;
 }.-ml-px{
@@ -878,6 +878,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 3rem;
 }.mb-4{
   margin-bottom: 1rem;
+}.mt-10{
+  margin-top: 2.5rem;
 }.mb-8{
   margin-bottom: 2rem;
 }.mb-3{
@@ -906,8 +908,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: -1px;
 }.mr-3{
   margin-right: 0.75rem;
-}.mt-10{
-  margin-top: 2.5rem;
 }.mb-10{
   margin-bottom: 2.5rem;
 }.mt-auto{
@@ -972,7 +972,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 33.333333%;
 }.w-full{
   width: 100%;
+}.w-10\/12{
+  width: 83.333333%;
+}.w-5\/12{
+  width: 41.666667%;
 }.w-1\/2{
+  width: 50%;
+}.w-3\/6{
   width: 50%;
 }.w-3\/12{
   width: 25%;
@@ -986,22 +992,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 2rem;
 }.w-auto{
   width: auto;
-}.w-10\/12{
-  width: 83.333333%;
-}.w-5\/12{
-  width: 41.666667%;
+}.w-2\/5{
+  width: 40%;
+}.w-fit{
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }.w-2\/6{
   width: 33.333333%;
-}.w-4\/5{
-  width: 80%;
 }.w-4\/6{
   width: 66.666667%;
 }.w-60{
   width: 15rem;
 }.w-4\/12{
   width: 33.333333%;
-}.w-3\/6{
-  width: 50%;
 }.w-20{
   width: 5rem;
 }.w-48{
@@ -1010,12 +1014,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1rem;
 }.w-6{
   width: 1.5rem;
-}.w-2\/5{
-  width: 40%;
-}.w-fit{
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
 }.max-w-xl{
   max-width: 36rem;
 }.max-w-6xl{
@@ -1084,20 +1082,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: center;
 }.justify-between{
   justify-content: space-between;
+}.gap-12{
+  gap: 3rem;
+}.gap-16{
+  gap: 4rem;
 }.gap-4{
   gap: 1rem;
 }.gap-8{
   gap: 2rem;
 }.gap-2{
   gap: 0.5rem;
-}.gap-16{
-  gap: 4rem;
 }.gap-6{
   gap: 1.5rem;
-}.gap-12{
-  gap: 3rem;
-}.gap-24{
-  gap: 6rem;
 }.space-x-5 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
@@ -1153,6 +1149,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.border-gray-300{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}.border-black{
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }.border-primary-admin{
   --tw-border-opacity: 1;
   border-color: rgb(14 11 43 / var(--tw-border-opacity));
@@ -1174,9 +1173,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.border-yellow-500{
   --tw-border-opacity: 1;
   border-color: rgb(234 179 8 / var(--tw-border-opacity));
-}.border-black{
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }.border-transparent{
   border-color: transparent;
 }.border-indigo-400{
@@ -1197,12 +1193,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.bg-primary{
   --tw-bg-opacity: 1;
   background-color: rgb(70 242 0 / var(--tw-bg-opacity));
-}.bg-black{
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }.bg-gray-100{
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}.bg-primary-contrast{
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 59 20 / var(--tw-bg-opacity));
+}.bg-black{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }.bg-primary-white{
   --tw-bg-opacity: 1;
   background-color: rgb(244 244 244 / var(--tw-bg-opacity));
@@ -1224,9 +1223,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.bg-teal-500{
   --tw-bg-opacity: 1;
   background-color: rgb(20 184 166 / var(--tw-bg-opacity));
-}.bg-primary-contrast{
-  --tw-bg-opacity: 1;
-  background-color: rgb(231 59 20 / var(--tw-bg-opacity));
 }.bg-blue-300{
   --tw-bg-opacity: 1;
   background-color: rgb(147 197 253 / var(--tw-bg-opacity));
@@ -1264,6 +1260,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.px-12{
   padding-left: 3rem;
   padding-right: 3rem;
+}.px-36{
+  padding-left: 9rem;
+  padding-right: 9rem;
+}.px-24{
+  padding-left: 6rem;
+  padding-right: 6rem;
+}.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }.px-5{
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -1273,30 +1281,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
-}.px-6{
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}.px-36{
-  padding-left: 9rem;
-  padding-right: 9rem;
 }.px-16{
   padding-left: 4rem;
   padding-right: 4rem;
-}.px-8{
-  padding-left: 2rem;
-  padding-right: 2rem;
-}.px-24{
-  padding-left: 6rem;
-  padding-right: 6rem;
-}.py-8{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }.py-12{
   padding-top: 3rem;
   padding-bottom: 3rem;
-}.px-32{
-  padding-left: 8rem;
-  padding-right: 8rem;
 }.py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -1336,10 +1326,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: right;
 }.align-top{
   vertical-align: top;
-}.font-nunito{
-  font-family: Nunito, sans-serif;
 }.font-poppins{
   font-family: Poppins, sans-serif;
+}.font-nunito{
+  font-family: Nunito, sans-serif;
 }.font-inter{
   font-family: Inter, sans-serif;
 }.text-sm{
@@ -1351,6 +1341,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
+}.text-5xl{
+  font-size: 3rem;
+  line-height: 1;
+}.text-7xl{
+  font-size: 4.5rem;
+  line-height: 1;
 }.text-lg{
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1360,12 +1356,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
-}.text-5xl{
-  font-size: 3rem;
-  line-height: 1;
-}.text-7xl{
-  font-size: 4.5rem;
-  line-height: 1;
 }.text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1402,6 +1392,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-primary{
   --tw-text-opacity: 1;
   color: rgb(70 242 0 / var(--tw-text-opacity));
+}.text-yellow-400{
+  --tw-text-opacity: 1;
+  color: rgb(250 204 21 / var(--tw-text-opacity));
 }.text-primary-admin{
   --tw-text-opacity: 1;
   color: rgb(14 11 43 / var(--tw-text-opacity));
@@ -1426,9 +1419,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-gray-900{
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
-}.text-yellow-400{
-  --tw-text-opacity: 1;
-  color: rgb(250 204 21 / var(--tw-text-opacity));
 }.text-red-700{
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
@@ -1562,6 +1552,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.hover\:border-gray-300:hover{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}.hover\:bg-primary-contrast-hover:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 41 15 / var(--tw-bg-opacity));
 }.hover\:bg-primary-admin-hover:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(49 38 147 / var(--tw-bg-opacity));
@@ -1574,9 +1567,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.hover\:bg-primary-admin:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(14 11 43 / var(--tw-bg-opacity));
-}.hover\:bg-primary-contrast-hover:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(168 41 15 / var(--tw-bg-opacity));
 }.hover\:bg-gray-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
