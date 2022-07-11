@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>Digital Trans Milenial</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css?v=') . time() }}">
 
     {{-- Font Awesome --}}
     {{-- <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}"> --}}
