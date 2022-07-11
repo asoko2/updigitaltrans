@@ -7,6 +7,25 @@
     <h2 class="text-5xl text-yellow-400">UP DRIVE</h2>
 @endsection
 
+@section('style')
+    <style>
+        .form-section {
+            display: none;
+        }
+
+        .form-section.current {
+            display: flex;
+        }
+
+        .parsley-errors-list {
+            margin: 2px 0 3px;
+            padding: 0;
+            list-style-type: none;
+            color: red;
+        }
+    </style>
+@endsection
+
 @section('content')
     <main class="mx-auto mt-10">
         @if ($errors->any())
@@ -34,10 +53,11 @@
                 </div>
             </div>
         @endif
-        <form action="{{ url('/register-upmerchant') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/register-upmerchant') }}" method="POST" enctype="multipart/form-data"
+            class="w-full flex items-center justify-center register-form">
             @csrf
-            <div class="flex flex-row gap-24 px-32">
-                <div class="flex flex-col gap-6 w-1/2 px-8 min-h-fit bg-gray-100 rounded-xl p-8 shadow-xl">
+            <div class="rounded-xl shadow-xl w-2/5  bg-gray-100 p-8">
+                <div class="form-section flex flex-col gap-6 min-h-fit">
                     <div class="flex flex-row w-full gap-4 items-center">
                         <label class="font-semibold w-3/12">Tipe Merchant</label>
                         <input type="radio" name="tipe_merchant" id="merchant1" value="1" required />
@@ -75,6 +95,8 @@
                             class="border-0 p-2 focus:ring-2 focus:ring-opacity-30 focus:ring-gray-500 shadow-md rounded-md w-full"
                             name="alamat" placeholder="Alamat" value="{{ old('alamat') }}" required />
                     </div>
+                </div>
+                <div class="form-section flex flex-col gap-6 min-h-fit">
                     <div class="flex flex-row w-full gap-4 items-center">
                         <label for="service" class="font-semibold w-3/12">Service</label>
                         <input type="text"
@@ -108,7 +130,7 @@
                             name="jam_tutup" placeholder="No.Kendaraan" value="{{ old('jam_tutup') }}" required />
                     </div>
                 </div>
-                <div class="flex flex-col gap-6 w-1/2 px-8 bg-gray-100 rounded-xl p-8 h-fit">
+                <div class="form-section flex flex-col gap-6 min-h-fit">
                     <div class="flex flex-row w-full gap-4 items-center">
                         <label for="password" class="font-semibold w-3/12">Password</label>
                         <input type="password"
@@ -140,10 +162,14 @@
                             class="border-0 p-2 focus:ring-2 focus:ring-opacity-30 focus:ring-gray-500 shadow-md rounded-md w-full bg-white"
                             name="usahaFile" required />
                     </div>
-                    <div>
-                        <button type="submit"
-                            class="bg-primary-bg text-primary hover:bg-primary hover:text-primary-bg font-bold text-lg px-3 py-2 rounded-md w-full transform transition-colors ease-out duration-150">DAFTAR</button>
-                    </div>
+                </div>
+                <div class="form-navigation mt-4 w-full flex justify-between">
+                    <button type="button"
+                        class="previous bg-primary-bg text-primary float-left hover:bg-primary hover:text-primary-bg font-bold text-lg px-3 py-2 rounded-md w-fit transform transition-colors ease-out duration-150">Previous</button>
+                    <button type="button"
+                        class="next bg-primary-bg text-primary hover:bg-primary float-right hover:text-primary-bg font-bold text-lg px-3 py-2 rounded-md w-fit transform transition-colors ease-out duration-150">Next</button>
+                    <button type="submit"
+                        class="bg-primary-bg text-primary hover:bg-primary hover:text-primary-bg font-bold text-lg px-3 py-2 rounded-md w-fit transform transition-colors ease-out duration-150">DAFTAR</button>
                 </div>
             </div>
         </form>
@@ -167,6 +193,38 @@
             $('input[name="no_sim"]').mask('0000000000000')
             $('input[name="no_stnk"]').mask('00000000')
             $('input[name="no_ktp"]').mask('0000000000000000')
+
+            var $sections = $('.form-section');
+
+            function navigateTo(index) {
+                $sections.removeClass('current').eq(index).addClass('current');
+                $('.form-navigation .previous').toggle(index > 0);
+                var atTheEnd = index >= $sections.length - 1;
+                $('.form-navigation .next').toggle(!atTheEnd);
+                $('.form-navigation [type=submit]').toggle(atTheEnd);
+            }
+
+            function curIndex() {
+                return $sections.index($sections.filter('.current'));
+            }
+
+            $('.form-navigation .previous').click(function() {
+                navigateTo(curIndex() - 1);
+            })
+
+            $('.form-navigation .next').click(function() {
+                $('.register-form').parsley().whenValidate({
+                    group: 'block-' + curIndex()
+                }).done(function() {
+                    navigateTo(curIndex() + 1);
+                })
+            })
+
+            $sections.each(function(index, section) {
+                $(section).find(':input').attr('data-parsley-group', 'block-' + index);
+            })
+
+            navigateTo(0);
         });
     </script>
 @endsection
