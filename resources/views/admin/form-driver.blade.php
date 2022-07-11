@@ -312,49 +312,6 @@
             }
         }
 
-        function callData(e) {
-            $('#modalLoading').show()
-            $('#modalBody').addClass('hidden')
-            $('#modalBody').removeClass('flex')
-            $.ajax({
-                url: `{{ url('admin/form-driver/show') }}/${e}`,
-                method: 'GET',
-                type: 'ajax',
-                dataType: 'json',
-                success: function(data) {
-                    $('#modalLoading').hide()
-                    $('#modalBody').removeClass('hidden')
-                    $('#modalBody').addClass('flex')
-                    $('#nama').html(data.driver.name)
-                    $('#email').html(data.driver.email)
-                    $('#ttl').html(data.driver.birth_date)
-                    $('#alamat').html(data.driver.address)
-                    $('#tipe_kendaraan').html((data.driver.vehicle_type === 'car') ? 'Mobil' : 'Motor')
-                    $('#merk').html(data.driver.brand)
-                    $('#tipe').html(data.driver.type)
-                    $('#warna').html(data.driver.color)
-                    $('#no_kendaraan').html(data.driver.vehicle_number)
-                    $('#no_ktp').html(data.driver.ktp_number +
-                        ` <a href="${data.photo_ktp}" target="_blank"><span class="text-blue-500 text-xl hover:text-blue-300">Lihat KTP <span class="mdi mdi-open-in-new"></span></span></a>`
-                    )
-                    $('#no_sim').html(data.driver.sim_number +
-                        ` <a href="${data.photo_sim}" target="_blank"><span class="text-blue-500 text-xl hover:text-blue-300">Lihat SIM <span class="mdi mdi-open-in-new"></span></span></a>`
-                    )
-                    $('#no_stnk').html(data.driver.stnk_number +
-                        ` <a href="${data.photo_stnk}" target="_blank"><span class="text-blue-500 text-xl hover:text-blue-300">Lihat STNK <span class="mdi mdi-open-in-new"></span></span></a>`
-                    );
-                    (data.driver.status == 0) ? $('#buttonGroupVerif').show(): $('#buttonGroupVerif').hide()
-                    $('#tolak').attr('data-id', data.driver.id)
-                    $('#tolak').attr('data-name', data.driver.name)
-                    $('#setuju').attr('data-id', data.driver.id)
-                    $('#setuju').attr('data-name', data.driver.name)
-                },
-                error: function(e) {
-                    console.log(e)
-                }
-            })
-        }
-
         function fetchData() {
             isLoading = true
             toggleLoading()
@@ -407,6 +364,50 @@
                 }
             })
         }
+
+        function callData(e) {
+            $('#modalLoading').show()
+            $('#modalBody').addClass('hidden')
+            $('#modalBody').removeClass('flex')
+            $.ajax({
+                url: `{{ url('admin/form-driver/show') }}/${e}`,
+                method: 'GET',
+                type: 'ajax',
+                dataType: 'json',
+                success: function(data) {
+                    $('#modalLoading').hide()
+                    $('#modalBody').removeClass('hidden')
+                    $('#modalBody').addClass('flex')
+                    $('#nama').html(data.driver.name)
+                    $('#email').html(data.driver.email)
+                    $('#ttl').html(data.driver.birth_date)
+                    $('#alamat').html(data.driver.address)
+                    $('#tipe_kendaraan').html((data.driver.vehicle_type === 'car') ? 'Mobil' : 'Motor')
+                    $('#merk').html(data.driver.brand)
+                    $('#tipe').html(data.driver.type)
+                    $('#warna').html(data.driver.color)
+                    $('#no_kendaraan').html(data.driver.vehicle_number)
+                    $('#no_ktp').html(data.driver.ktp_number +
+                        ` <a href="${data.photo_ktp}" target="_blank"><span class="text-blue-500 text-xl hover:text-blue-300">Lihat KTP <span class="mdi mdi-open-in-new"></span></span></a>`
+                    )
+                    $('#no_sim').html(data.driver.sim_number +
+                        ` <a href="${data.photo_sim}" target="_blank"><span class="text-blue-500 text-xl hover:text-blue-300">Lihat SIM <span class="mdi mdi-open-in-new"></span></span></a>`
+                    )
+                    $('#no_stnk').html(data.driver.stnk_number +
+                        ` <a href="${data.photo_stnk}" target="_blank"><span class="text-blue-500 text-xl hover:text-blue-300">Lihat STNK <span class="mdi mdi-open-in-new"></span></span></a>`
+                    );
+                    (data.driver.status == 0) ? $('#buttonGroupVerif').show(): $('#buttonGroupVerif').hide()
+                    $('#tolak').attr('data-id', data.driver.id)
+                    $('#tolak').attr('data-name', data.driver.name)
+                    $('#setuju').attr('data-id', data.driver.id)
+                    $('#setuju').attr('data-name', data.driver.name)
+                },
+                error: function(e) {
+                    console.log(e)
+                }
+            })
+        }
+
 
         $(document).ready(function() {
 
